@@ -1,314 +1,385 @@
-/* =======================================================
-   1. SETUP VARIABEL & RESET (PONDASI)
-   ======================================================= */
+/* --- Import Google Fonts --- */
+/* 'Pirata One' untuk kesan bajak laut, 'Spectral' untuk teks isi yang klasik */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Spectral:wght@400;600&display=swap');
 
+/* --- Variabel Warna One Piece --- */
 :root {
-  /* -- Variabel Warna (Ungu & Hitam Tema) -- */
-  --bg-dark: #0f0f0f;         /* Hitam pekat untuk latar belakang utama */
-  --bg-card: #1a1a1a;         /* Hitam sedikit terang untuk kartu/elemen */
-  --text-primary: #ffffff;    /* Putih untuk teks utama */
-  --text-secondary: #b3b3b3;  /* Abu-abu untuk teks deskripsi */
-  --purple-neon: #a855f7;     /* Ungu neon cerah untuk highlight */
-  --purple-deep: #7e22ce;     /* Ungu gelap untuk efek hover */
+    --op-blue-dark: #002b5c; /* Biru Laut Dalam */
+    --op-blue-light: #00a8e8; /* Biru Langit Cerah */
+    --op-gold: #ffd700; /* Emas Harta Karun / Topi Jerami */
+    --op-gold-dark: #c5a000;
+    --op-red: #d62828; /* Merah Luffy */
+    --op-wood: #8b4513; /* Coklat Kayu Kapal */
+    --op-parchment: #fff8e1; /* Warna Kertas Peta Tua */
+    --text-dark: #1a1a1a;
+    --text-light: #fff8e1;
 }
 
-* {
-  margin: 0;                  /* Hapus jarak luar bawaan browser */
-  padding: 0;                 /* Hapus jarak dalam bawaan browser */
-  box-sizing: border-box;     /* Padding tidak akan menambah lebar elemen */
-}
-
+/* --- Reset Dasar --- */
 html {
-  scroll-behavior: smooth;    /* Efek geser halus saat klik menu navigasi */
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font modern standar laptop */
-  background-color: var(--bg-dark); /* Warna background hitam */
-  color: var(--text-primary);       /* Warna teks putih */
-  line-height: 1.6;                 /* Jarak antar baris agar mudah dibaca */
+    margin: 0;
+    padding: 0;
+    font-family: 'Spectral', serif;
+    background-color: var(--op-parchment);
+    /* Menambahkan tekstur halus seperti kertas peta */
+    background-image: linear-gradient(rgba(255, 248, 225, 0.9), rgba(255, 248, 225, 0.9)), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2='#8b4513' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
-/* Mengatur gambar agar responsif dan tidak melebihi wadahnya */
-img {
-  max-width: 100%;            /* Gambar tidak boleh lebih lebar dari tempatnya */
-  display: block;             /* Hilangkan celah putih di bawah gambar */
+h1, h2, h3 {
+    font-family: 'Pirata One', cursive;
+    letter-spacing: 1px;
 }
 
-/* Hapus garis bawah pada semua link */
-a {
-  text-decoration: none;
-}
-
-/* Container agar isi website rapi di tengah layar laptop */
 .container {
-  max-width: 1100px;          /* Batas lebar maksimal konten */
-  margin: 0 auto;             /* Posisi otomatis di tengah (kiri-kanan) */
-  padding: 0 20px;            /* Jarak aman di sisi kiri dan kanan layar */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* =======================================================
-   2. NAVIGASI (HEADER)
-   ======================================================= */
-
+/* --- Bagian Navigasi (Gaya Dek Kapal) --- */
 header {
-  position: sticky;           /* Navbar menempel di atas saat discroll */
-  top: 0;                     /* Posisi nempel di paling atas */
-  background-color: rgba(15, 15, 15, 0.95); /* Hitam agak transparan */
-  border-bottom: 2px solid var(--purple-deep); /* Garis ungu di bawah navbar */
-  z-index: 1000;              /* Pastikan navbar selalu di atas elemen lain */
+    background: linear-gradient(to right, var(--op-wood), var(--op-blue-dark));
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    border-bottom: 3px solid var(--op-gold);
 }
 
 nav {
-  display: flex;              /* Susun logo dan menu bersebelahan */
-  justify-content: space-between; /* Logo di kiri mentok, Menu di kanan mentok */
-  align-items: center;        /* Rata tengah secara vertikal */
-  padding: 15px 5%;           /* Jarak dalam navbar */
-  max-width: 1200px;          /* Batas lebar navbar */
-  margin: 0 auto;             /* Posisi tengah */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
 }
 
 .logo {
-  font-size: 1.5rem;          /* Ukuran font logo */
-  font-weight: bold;          /* Font tebal */
-  color: var(--text-primary); /* Warna putih */
+    font-family: 'Pirata One', cursive;
+    font-size: 2rem;
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px #000;
 }
 
 .logo span {
-  color: var(--purple-neon);  /* Warna ungu khusus tulisan 'Porto' */
+    color: var(--op-gold);
 }
 
 nav ul {
-  display: flex;              /* Menu list berjejer ke samping */
-  list-style: none;           /* Hapus titik bullet point */
-  gap: 20px;                  /* Jarak antar menu */
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
-  color: var(--text-primary); /* Warna link putih */
-  font-weight: 500;           /* Ketebalan font sedang */
-  transition: 0.3s;           /* Animasi halus saat warna berubah */
+    text-decoration: none;
+    color: var(--op-gold);
+    font-weight: bold;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-  color: var(--purple-neon);  /* Berubah ungu saat kursor diarahkan */
+    color: var(--op-blue-dark);
+    background-color: var(--op-gold);
+    box-shadow: 0 0 10px var(--op-gold);
 }
 
-/* =======================================================
-   3. HERO SECTION (HOME)
-   ======================================================= */
-
+/* --- Bagian Home (Hero Section) --- */
 .hero {
-  display: flex;              /* Susunan Flexbox */
-  align-items: center;        /* Rata tengah vertikal */
-  justify-content: space-between; /* Teks kiri, Gambar kanan */
-  min-height: 90vh;           /* Tinggi minimal 90% layar laptop */
-  padding: 0 10%;             /* Jarak kiri kanan section */
-  gap: 30px;                  /* Jarak antara teks dan gambar */
+    /* Latar belakang Samudra Grand Line */
+    background: linear-gradient(rgba(0, 43, 92, 0.85), rgba(0, 168, 232, 0.7)),
+                url('https://www.transparenttextures.com/patterns/cubes.png'); /* Tekstur halus */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-light);
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    min-height: 80vh;
+    flex-wrap: wrap-reverse; /* Agar responsif di HP */
 }
 
 .hero-content {
-  flex: 1;                    /* Mengambil 50% lebar area */
+    flex: 1;
+    max-width: 600px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;            /* Ukuran nama sangat besar */
-  color: var(--purple-neon);  /* Warna nama ungu */
-  margin: 10px 0;             /* Jarak atas bawah nama */
+    font-size: 4rem;
+    margin: 10px 0;
+    color: var(--op-gold);
+    text-shadow: 3px 3px 0px var(--op-red), 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 .hero-content p {
-  color: var(--text-secondary); /* Warna teks deskripsi abu-abu */
-  margin-bottom: 20px;        /* Jarak ke tombol */
-  font-size: 1.1rem;          /* Ukuran font sedikit besar */
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
 .btn-hero {
-  display: inline-block;      /* Agar padding berfungsi pada link */
-  padding: 10px 30px;         /* Ukuran tombol */
-  background-color: var(--purple-neon); /* Warna dasar tombol */
-  color: #000;                /* Teks tombol hitam agar kontras */
-  border-radius: 50px;        /* Sudut tombol bulat lonjong */
-  font-weight: bold;          /* Teks tebal */
-  transition: 0.3s;           /* Animasi */
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--op-red);
+    color: var(--op-gold);
+    text-decoration: none;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: 3px solid var(--op-gold);
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(214, 40, 40, 0.4);
 }
 
 .btn-hero:hover {
-  background-color: var(--purple-deep); /* Warna jadi gelap saat hover */
-  color: #fff;                /* Teks jadi putih saat hover */
-  transform: translateY(-3px); /* Tombol naik sedikit */
+    background: var(--op-gold);
+    color: var(--op-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.6);
 }
 
+/* --- FOTO PROFIL DENGAN BINGKAI TOPI JERAMI CSS --- */
 .hero-logo {
-  flex: 1;                    /* Mengambil 50% lebar area */
-  display: flex;              /* Untuk menengahkan gambar */
-  justify-content: center;    /* Gambar di tengah areanya */
+    flex: 1;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .hero-logo img {
-  width: 350px;               /* Lebar gambar profil */
-  height: 350px;              /* Tinggi gambar profil */
-  object-fit: cover;          /* Agar gambar tidak gepeng jika bukan persegi */
-  border-radius: 50%;         /* Membuat gambar jadi lingkaran */
-  border: 4px solid var(--purple-neon); /* Bingkai ungu */
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); /* Efek cahaya (glow) ungu */
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%; /* Membuat foto jadi bulat */
+    
+    /* BINGKAI TOPI JERAMI (Simulasi Tali Tambang Emas) */
+    /* Lapisan 1: Border emas solid */
+    border: 8px solid var(--op-gold);
+    /* Lapisan 2: Outline putus-putus untuk efek tekstur tali/jerami */
+    outline: 6px dotted var(--op-gold-dark);
+    outline-offset: -4px;
+    
+    /* Efek bayangan agar terlihat "muncul" */
+    box-shadow: 
+        0 0 0 10px var(--op-wood), /* Lapisan kayu terluar */
+        0 10px 30px rgba(0,0,0,0.5), /* Bayangan dalam */
+        0 0 50px var(--op-gold); /* Cahaya harta karun */
+        
+    transition: transform 0.5s ease;
 }
 
-/* =======================================================
-   4. SECTION: ABOUT
-   ======================================================= */
+.hero-logo img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
 
+
+/* --- Bagian About (Gaya Peta Harta Karun) --- */
 .about {
-  padding: 80px 20px;         /* Jarak atas bawah section */
-  text-align: center;         /* Semua teks rata tengah */
+    background-color: var(--op-parchment);
+    padding: 60px 20px;
+    position: relative;
+    /* Efek pinggiran kertas sobek */
+    border: 10px solid transparent;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%238b4513' d='M0 0v100h100V0H0zm10 10h80v80H10V10z'/%3E%3C/svg%3E") 10 stretch;
+    box-shadow: inset 0 0 50px rgba(139, 69, 19, 0.3);
 }
 
 .about h2 {
-  font-size: 2.5rem;          /* Ukuran judul section */
-  margin-bottom: 30px;        /* Jarak judul ke konten */
-  color: var(--purple-neon);  /* Warna ungu */
+    text-align: center;
+    font-size: 3rem;
+    color: var(--op-wood);
+    text-shadow: 1px 1px var(--op-gold);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Menambahkan ikon tengkorak kecil di bawah judul */
+.about h2::after {
+    content: '☠';
+    display: block;
+    font-size: 2rem;
+    color: var(--op-red);
+    margin-top: 10px;
 }
 
 .about-content {
-  max-width: 800px;           /* Lebar teks dibatasi agar enak dibaca */
-  margin: 0 auto;             /* Posisi tengah */
-  background-color: var(--bg-card); /* Background abu gelap */
-  padding: 30px;              /* Jarak tulisan ke pinggir kotak */
-  border-radius: 15px;        /* Sudut kotak melengkung */
-  border-left: 5px solid var(--purple-neon); /* Hiasan garis ungu di kiri */
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    text-align: justify;
 }
 
-.about-content p {
-  margin-bottom: 15px;        /* Jarak antar paragraf */
-  color: var(--text-secondary); /* Warna teks abu */
-}
-
-/* =======================================================
-   5. SECTION: PROYEK (GRID SYSTEM)
-   ======================================================= */
-/*  - Grid membagi layar menjadi kolom */
-
+/* --- Bagian Proyek (Gaya Peti Harta Karun) --- */
 .proyek {
-  padding: 80px 20px;         /* Jarak section */
+    background-color: var(--op-blue-dark);
+    padding: 60px 20px;
+    color: var(--text-light);
+    background-image: url('https://www.transparenttextures.com/patterns/nautical-stripes.png');
 }
 
 .proyek h2 {
-  text-align: center;         /* Judul di tengah */
-  font-size: 2.5rem;          /* Ukuran judul */
-  margin-bottom: 50px;        /* Jarak judul ke kartu */
-  color: var(--purple-neon);  /* Warna ungu */
+    text-align: center;
+    font-size: 3rem;
+    color: var(--op-gold);
+    margin-bottom: 40px;
 }
 
+/* Grid layout untuk kartu proyek */
 .proyek-grid {
-  display: grid;              /* Aktifkan mode Grid */
-  /* Kode Ajaib: Buat kolom otomatis, minimal lebar 300px per kartu */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;                  /* Jarak antar kartu (selokan) */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
+/* Kartu Proyek */
 .proyek-card {
-  background-color: var(--bg-card); /* Warna kartu */
-  border-radius: 10px;        /* Sudut kartu */
-  overflow: hidden;           /* Agar gambar tidak keluar dari sudut kartu */
-  border: 1px solid #333;     /* Garis tepi tipis */
-  transition: 0.3s;           /* Animasi halus */
-  display: block;             /* Agar link membungkus seluruh area */
+    background: linear-gradient(to bottom, var(--op-wood), #5d3a1a); /* Warna peti kayu */
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-light);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    border: 4px solid var(--op-gold-dark); /* Bingkai emas */
+    transition: all 0.4s ease;
+    position: relative;
 }
 
+/* Efek saat hover - Peti terbuka! */
 .proyek-card:hover {
-  transform: translateY(-10px); /* Kartu naik saat hover */
-  border-color: var(--purple-neon); /* Border jadi ungu */
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+    border-color: var(--op-gold);
 }
 
 .proyek-card img {
-  width: 100%;                /* Gambar memenuhi lebar kartu */
-  height: 200px;              /* Tinggi gambar tetap */
-  object-fit: cover;          /* Potong gambar agar pas di kotak (crop) */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--op-gold);
+    filter: sepia(30%); /* Efek foto lama */
+    transition: filter 0.4s;
+}
+
+.proyek-card:hover img {
+    filter: sepia(0%); /* Foto jadi berwarna saat di-hover */
 }
 
 .proyek-info {
-  padding: 20px;              /* Jarak teks dari pinggir kartu */
+    padding: 20px;
+    text-align: center;
 }
 
 .proyek-info h3 {
-  color: var(--text-primary); /* Judul proyek putih */
-  margin-bottom: 5px;         /* Jarak ke deskripsi */
+    margin: 0 0 10px;
+    color: var(--op-gold);
+    font-size: 1.5rem;
 }
 
-.proyek-info p {
-  color: var(--text-secondary); /* Deskripsi abu-abu */
-  font-size: 0.9rem;          /* Ukuran huruf kecil */
-}
-
-/* =======================================================
-   6. SECTION: MEDSOS & FOOTER
-   ======================================================= */
-
+/* --- Bagian Medsos --- */
 .medsos {
-  padding: 60px 20px;         /* Jarak section */
-  text-align: center;         /* Rata tengah */
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--op-parchment);
 }
 
 .medsos h2 {
-  color: var(--purple-neon);  /* Judul ungu */
-  margin-bottom: 30px;        /* Jarak ke ikon */
+    font-size: 3rem;
+    color: var(--op-blue-dark);
+    margin-bottom: 40px;
 }
 
 .medsos-list {
-  display: flex;              /* Jejerkan ikon ke samping */
-  justify-content: center;    /* Posisi di tengah layar */
-  gap: 30px;                  /* Jarak antar ikon */
-  flex-wrap: wrap;            /* Turun ke bawah jika layar sempit */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .medsos-item {
-  display: flex;              /* Flexbox untuk ikon dan teks */
-  flex-direction: column;     /* Susun atas-bawah (ikon atas, teks bawah) */
-  align-items: center;        /* Rata tengah */
-  color: var(--text-primary); /* Warna teks */
-  gap: 10px;                  /* Jarak ikon ke teks */
-  padding: 15px;
-  border-radius: 10px;
-  transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--op-wood);
+    font-family: 'Pirata One', cursive;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
 }
 
 .medsos-item:hover {
-  background-color: rgba(168, 85, 247, 0.1); /* Background ungu transparan saat hover */
-  transform: scale(1.1);      /* Membesar sedikit saat hover */
+    transform: scale(1.1);
+    color: var(--op-red);
 }
 
 .medsos-item img {
-  width: 50px;                /* Ukuran ikon medsos */
-  height: 50px;               /* Ukuran ikon medsos */
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    /* Membuat ikon medsos terlihat seperti stempel atau koin kuno */
+    filter: drop-shadow(3px 3px 0 var(--op-gold-dark)) grayscale(50%);
+    transition: all 0.3s;
+    margin-bottom: 10px;
 }
 
+.medsos-item:hover img {
+    filter: drop-shadow(3px 3px 0 var(--op-red)) grayscale(0%);
+}
+
+/* --- Footer --- */
 footer {
-  text-align: center;         /* Teks di tengah */
-  padding: 20px;              /* Jarak dalam */
-  background-color: #000;     /* Footer hitam gelap */
-  color: var(--text-secondary); /* Teks abu-abu */
-  border-top: 1px solid #333; /* Garis batas atas */
+    background: var(--op-blue-dark);
+    color: var(--op-gold);
+    text-align: center;
+    padding: 20px;
+    font-family: 'Pirata One', cursive;
+    border-top: 4px solid var(--op-red);
 }
 
-/* =======================================================
-   7. RESPONSIVE (MEDIA QUERY) - UNTUK HP
-   ======================================================= */
-
-/* Jika lebar layar kurang dari 768px (HP/Tablet Portrait) */
+/* --- Responsif untuk Layar Kecil (HP) --- */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column-reverse; /* Balik urutan: Teks di bawah, Gambar di atas */
-    text-align: center;       /* Teks rata tengah */
-    padding-top: 100px;       /* Jarak atas agar tidak tertutup navbar */
-  }
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-  .hero-logo img {
-    width: 250px;             /* Perkecil gambar profil di HP */
-    height: 250px;
-  }
-  
-  nav {
-    flex-direction: column;   /* Menu turun ke bawah logo */
-    gap: 15px;
-  }
+    .hero {
+        padding-top: 50px;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-logo img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .about h2, .proyek h2, .medsos h2 {
+        font-size: 2.5rem;
+    }
 }
